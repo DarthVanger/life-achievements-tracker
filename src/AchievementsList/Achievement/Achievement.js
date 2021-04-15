@@ -3,11 +3,21 @@ import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import Stars from './Stars';
 
 const Achievement = ({ achievement, onEdit }) => {
+  const [achievementWasPressed, setAchievementWasPressed] = useState(false);
+
+  if (achievementWasPressed) {
+    return <Text>asdf</Text>;
+  }
+  const handlePress = () => {
+    setAchievementWasPressed(true);
+  };
+
   return (
-    <TouchableHighlight style={styles.container} onPress={onEdit}>
+    <TouchableHighlight style={styles.container} onPress={handlePress}>
       <View>
         <Stars achievement={achievement} />
         <Text>{achievement.name}</Text>
+        <Text>pressed: {achievementWasPressed ? 'true' : 'false'}</Text>
       </View>
     </TouchableHighlight>
   );
@@ -23,6 +33,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 5,
     width: 160,
+    height: 100,
   },
 });
 
