@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
-import Stars from './Stars';
+import StarsInput from './StarsInput';
 
 const EditAchievement = ({ achievement }) => {
   const [name, setName] = useState(achievement);
@@ -11,7 +11,7 @@ const EditAchievement = ({ achievement }) => {
 
   return (
     <View style={styles.container}>
-      <Stars achievement={achievement} />
+      <StarsInput achievement={achievement} />
       <TextInput style={styles.nameInput}
         value={name}
         onChangeText={handleChangeText}
