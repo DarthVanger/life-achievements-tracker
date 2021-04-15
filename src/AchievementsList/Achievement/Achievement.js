@@ -1,13 +1,28 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import Stars from './Stars';
+import EditAchievement from './EditAchievement';
 
 const Achievement = ({ achievement }) => {
+  const [isEditModeOn, setIsEditModeOn] = useState(false);
+
+  console.log('test');
+
+  const handlePress = () => {
+    setIsEditModeOn(true);
+  };
+
+  if (isEditModeOn) {
+    return <EditAchievement achievement={achievement} />;
+  }
+
   return (
-    <View style={styles.container}>
-      <Stars achievement={achievement} />
-      <Text>{achievement.name}</Text>
-    </View>
+    <TouchableHighlight style={styles.container} onPress={handlePress}>
+      <View>
+        <Stars achievement={achievement} />
+        <Text>{achievement.name}</Text>
+      </View>
+    </TouchableHighlight>
   );
 };
 

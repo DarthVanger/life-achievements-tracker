@@ -4,7 +4,13 @@ import { StyleSheet, Image, Text, View } from 'react-native';
 const Stars = ({ achievement }) => {
   const stars = [];
   for (let i = 0; i < achievement.stars; i++) {
-    stars.push(<Image style={styles.starImage} source={require('./medal.png')} />);
+    stars.push((
+      <Image
+        style={styles.starImage}
+        source={require('./medal.png')}
+        key={i}
+      />
+    ));
   }
 
   return (
