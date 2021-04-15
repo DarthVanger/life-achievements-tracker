@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
 
 const StarsInput = ({ achievement }) => {
-  const [name, setName] = useState(achievement);
-  const stars = [];
+  const [stars, setStars] = useState(achievement.stars);
+  const starElements = [];
 
   for (let starIndex = 0; starIndex < 5; starIndex++) {
-    stars.push((
-      <Image
-        style={{ height: 32, width: 32, opacity: starIndex < achievement.stars ? 1 : 0.5 }}
-        source={require('./medal.png')}
-        key={starIndex}
-      />
+    starElements.push((
+      <TouchableHighlight onPress={() => setStars(starIndex + 1)}>
+        <Image
+          style={{ height: 32, width: 32, opacity: starIndex < stars ? 1 : 0.5 }}
+          source={require('./medal.png')}
+          key={starIndex}
+        />
+      </TouchableHighlight>
     ));
   }
 
   return (
     <View style={styles.container}>
-      {stars}
+      {starElements}
     </View>
   );
 };
