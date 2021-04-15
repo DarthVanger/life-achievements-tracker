@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 import StarsInput from './StarsInput';
 
-const EditAchievement = ({ achievement }) => {
+const EditAchievement = ({ achievement, onSave }) => {
   const [formData, setFormData] = useState(achievement);
 
   const handleChangeText = (text) => {
@@ -26,6 +26,10 @@ const EditAchievement = ({ achievement }) => {
         value={formData.name}
         onChangeText={handleChangeText}
       />
+      <Button
+        title="save"
+        onPress={() => onSave({ ...achievement, ...formData})}
+      />
     </View>
   );
 };
@@ -40,7 +44,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 5,
     width: 160,
-    height: 100,
+    height: 200,
   },
   nameInput: {
     marginTop: 16,

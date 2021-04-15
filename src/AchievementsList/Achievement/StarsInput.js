@@ -6,11 +6,13 @@ const StarsInput = ({ stars, onChange }) => {
 
   for (let starIndex = 0; starIndex < 5; starIndex++) {
     starElements.push((
-      <TouchableHighlight onPress={() => onChange(starIndex + 1)}>
+      <TouchableHighlight 
+        key={starIndex}
+        onPress={() => onChange(starIndex + 1)}
+      >
         <Image
           style={{ height: 32, width: 32, opacity: starIndex < stars ? 1 : 0.5 }}
           source={require('./medal.png')}
-          key={starIndex}
         />
       </TouchableHighlight>
     ));
