@@ -3,17 +3,27 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 import StarsInput from './StarsInput';
 
 const EditAchievement = ({ achievement }) => {
-  const [name, setName] = useState(achievement);
+  const [formData, setFormData] = useState(achievement);
 
   const handleChangeText = (text) => {
-    setName(text);
+    setFormData({
+      ...formData,
+      name: text,
+    });
+  };
+
+  const handleChangeStars = (stars) => {
+    setFormData({
+      ...formData,
+      stars,
+    });
   };
 
   return (
     <View style={styles.container}>
-      <StarsInput achievement={achievement} />
+      <StarsInput stars={formData.stars} onChange={handleChangeStars} />
       <TextInput style={styles.nameInput}
-        value={name}
+        value={formData.name}
         onChangeText={handleChangeText}
       />
     </View>
