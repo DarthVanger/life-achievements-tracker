@@ -3,13 +3,8 @@ import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import Stars from './Stars';
 
 const Achievement = ({ achievement, onEdit }) => {
-  const [achievementWasPressed, setAchievementWasPressed] = useState(false);
-
-  if (achievementWasPressed) {
-    return <Text>asdf</Text>;
-  }
   const handlePress = () => {
-    setAchievementWasPressed(true);
+    onEdit();
   };
 
   return (
@@ -17,7 +12,6 @@ const Achievement = ({ achievement, onEdit }) => {
       <View>
         <Stars achievement={achievement} />
         <Text>{achievement.name}</Text>
-        <Text>pressed: {achievementWasPressed ? 'true' : 'false'}</Text>
       </View>
     </TouchableHighlight>
   );

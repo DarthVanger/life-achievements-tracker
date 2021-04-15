@@ -7,7 +7,7 @@ const AchievementList = ({ achievements }) => {
   const [editedAchievement, setEditedAchievement] = useState(undefined);
 
   const handleAchievementEdit = (achievement) => {
-    setEditedAchiement(achievement);
+    setEditedAchievement(achievement);
   }
 
   const achievementElements = achievements.map(achievement => {
