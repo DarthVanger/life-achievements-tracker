@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 import Stars from './Stars';
 
 const EditAchievement = ({ achievement }) => {
+  const [name, setName] = useState(achievement);
+
+  const handleChangeText = (text) => {
+    setName(text);
+  };
+
   return (
     <View style={styles.container}>
       <Stars achievement={achievement} />
-      <Text>EDIT {achievement.name}</Text>
+      <TextInput style={styles.nameInput}
+        value={name}
+        onChangeText={handleChangeText}
+      />
     </View>
   );
 };
@@ -22,6 +31,12 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: 160,
     height: 100,
+  },
+  nameInput: {
+    marginTop: 16,
+    fontSize: 32,
+    textAlign: 'center',
+    width: '100%',
   },
 });
 
