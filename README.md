@@ -19,7 +19,7 @@ React-Native.
 
 ## Launch locally
 ```
-git clone
+git clone git@github.com:DarthVanger/life-achievements-tracker.git
 cd life-achievements-tracker
 npm i
 npm start
