@@ -7,7 +7,7 @@ const Stars = ({ achievement }) => {
     stars.push((
       <Image
         style={styles.starImage}
-        source={require('./medal.png')}
+        source={require('../medal.png')}
         key={i}
       />
     ));

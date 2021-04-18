@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
-import AchievementCard from './AchievementCard';
+import AchievementCard from '../AchievementCard';
 import StarsInput from './StarsInput';
 
 const EditAchievement = ({ route, onChange }) => {

@@ -12,7 +12,7 @@ const StarsInput = ({ stars, onChange }) => {
       >
         <Image
           style={{ height: 32, width: 32, opacity: starIndex < stars ? 1 : 0.5 }}
-          source={require('./medal.png')}
+          source={require('../medal.png')}
         />
       </TouchableHighlight>
     ));

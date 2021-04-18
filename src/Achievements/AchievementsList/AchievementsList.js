@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
-import Achievement from './Achievement/Achievement'
-import EditAchievement from './Achievement/EditAchievement';
-import AddAchievement from './Achievement/AddAchievement';
+import Achievement from './Achievement'
 import { useNavigation } from '@react-navigation/native';
-import guid from '../utils/guid';
+import guid from './guid';
 
 const AchievementList = () => {
   const navigation = useNavigation();
@@ -51,30 +49,9 @@ const AchievementList = () => {
     }));
   };
 
-  const achievementElements = achievements.map(achievement => {
-    if (achievementInEditMode === achievement) {
-      return (
-        <EditAchievement
-          key={achievement.id}
-          achievement={achievement}
-          onChange={handleAchievementEdit}
-        />
-      );
-    }
-
-    return (
-      <Achievement
-        key={achievement.id}
-        achievement={achievement}
-        onEdit={() => handleSwitchToEditMode(achievement)}
-      />
-    );
-  });
-
   const renderItem = ({ item }) => (
     <Achievement achievement={item} />
   );
-
 
   return (
     <View style={styles.container}>

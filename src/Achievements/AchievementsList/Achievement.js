@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import AchievementCard from './AchievementCard';
+//import AchievementCard from './AchievementCard';
 import Stars from './Stars';
 
 const Achievement = ({ achievement, onEdit }) => {

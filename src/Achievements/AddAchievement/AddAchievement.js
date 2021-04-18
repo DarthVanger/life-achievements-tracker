@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
-import AchievementCard from './AchievementCard';
-import Stars from './Stars';
+//import AchievementCard from './AchievementCard';
+//import Stars from './Stars';
 
 const AddAchievement = ({ achievement, onPress, onChange }) => {
   const handlePress = () => {
@@ -9,9 +9,9 @@ const AddAchievement = ({ achievement, onPress, onChange }) => {
   };
 
   return (
-    <AchievementCard onPress={handlePress}>
+    <View>
       <Text style={styles.text}>New Achievement</Text>
-    </AchievementCard>
+    </View>
   );
 };
 

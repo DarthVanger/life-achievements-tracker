@@ -1,11 +1,11 @@
 import 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
-import AchievementsList from './src/AchievementsList/AchievementsList';
-import EditAchievement from './src/AchievementsList/Achievement/EditAchievement';
-import AddAchievement from './src/AchievementsList/Achievement/AddAchievement';
+import AchievementsList from './src/Achievements/AchievementsList/AchievementsList';
+import EditAchievement from './src/Achievements/EditAchievement/EditAchievement';
+import AddAchievement from './src/Achievements/AddAchievement/AddAchievement';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
