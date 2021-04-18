@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
 import Achievement from './Achievement/Achievement'
 import EditAchievement from './Achievement/EditAchievement';
 import AddAchievement from './Achievement/AddAchievement';
+import { useNavigation } from '@react-navigation/native';
 import guid from '../utils/guid';
 
 const AchievementList = () => {
+  const navigation = useNavigation();
+
   const initialAchievements = [
     {
       id: guid(),
@@ -75,6 +78,7 @@ const AchievementList = () => {
 
   return (
     <View style={styles.container}>
+      <Button title="New Achievement" onPress={navigation.navigate('Add Achievement')} />
       <FlatList
         data={achievements}
         renderItem={renderItem}
