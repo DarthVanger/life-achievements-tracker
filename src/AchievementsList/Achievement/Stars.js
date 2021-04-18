@@ -20,16 +20,20 @@ const Stars = ({ achievement }) => {
   );
 };
 
+const starWidth = 32;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    alignSelf: 'flex-start',
     flexDirection: 'row',
+    width: starWidth * 5,
   },
   starImage: {
     height: 32,
-    width: 32,
+    width: starWidth,
   }
 });
 
