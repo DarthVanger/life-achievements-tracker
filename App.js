@@ -4,6 +4,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import AchievementsList from './src/AchievementsList/AchievementsList';
+import EditAchievement from './src/AchievementsList/Achievement/EditAchievement';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
@@ -15,6 +16,10 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={AchievementsList}
+        />
+        <Stack.Screen
+          name="Edit Achievement"
+          component={EditAchievement}
         />
       </Stack.Navigator>
     </NavigationContainer>

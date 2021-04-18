@@ -3,7 +3,8 @@ import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 import AchievementCard from './AchievementCard';
 import StarsInput from './StarsInput';
 
-const EditAchievement = ({ achievement, onChange }) => {
+const EditAchievement = ({ route, onChange }) => {
+  const { achievement } = route.params;
   const handleChangeText = (text) => {
     onChange({
       ...achivement,
@@ -20,9 +21,9 @@ const EditAchievement = ({ achievement, onChange }) => {
 
   return (
     <AchievementCard>
-      <StarsInput stars={formData.stars} onChange={handleChangeStars} />
+      <StarsInput stars={achievement.stars} onChange={handleChangeStars} />
       <TextInput style={styles.nameInput}
-        value={formData.name}
+        value={achievement.name}
         onChangeText={handleChangeText}
       />
     </AchievementCard>

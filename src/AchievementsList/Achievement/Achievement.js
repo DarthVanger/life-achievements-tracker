@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import AchievementCard from './AchievementCard';
 import Stars from './Stars';
 
 const Achievement = ({ achievement, onEdit }) => {
+  const navigation = useNavigation();
+
   const handlePress = () => {
-    onEdit();
+    navigation.navigate('Edit Achievement', { achievement });
   };
 
+
   return (
-    <TouchableHighlight style={styles.container}>
+    <TouchableHighlight style={styles.container} onPress={handlePress}>
       <View>
         <Stars achievement={achievement} />
         <Text style={styles.text}>{achievement.name}</Text>
