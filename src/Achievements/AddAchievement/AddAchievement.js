@@ -1,17 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
-//import AchievementCard from './AchievementCard';
-//import Stars from './Stars';
+import AchievementEditor from '../EditAchievement/AchievementEditor';
+import guid from '../AchievementsStore/guid';
+import useAchievements from '../AchievementsStore/useAchievements';
 
-const AddAchievement = ({ achievement, onPress, onChange }) => {
+const AddAchievement = ({ onPress, onChange }) => {
+  const { achievements, setAchievements } = useAchievements();
+
   const handlePress = () => {
     onPress();
   };
 
+  const newAchievement = useMemo(() => ({
+    id: guid(),
+    stars: 1,
+    name: '',
+  }), []);
+
+  useEffect(() => {
+    setAchievements([
+      ...achievements,
+      newAchievement,
+    ]);
+  }, []);
+
+  const achievement = achievements.find(a => a.id === newAchievement.id) || newAchievement;
+
   return (
-    <View>
-      <Text style={styles.text}>New Achievement</Text>
-    </View>
+    <AchievementEditor achievement={achievement} />
   );
 };
 
