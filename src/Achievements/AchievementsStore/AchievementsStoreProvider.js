@@ -1,6 +1,7 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import AchievementsContext from './AchievementsContext';
 import guid from './guid';
+import * as persistentStorage from './phoneStorage';
 
 const initialAchievements = [
   {
@@ -16,7 +17,20 @@ const initialAchievements = [
 ];
 
 const AchievementsStoreProvider = ({ children }) => {
-  const [achievements, setAchievements] = useState(initialAchievements);
+  const [achievements, setAchievements] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const persistedAchievements = await persistentStorage.getAchievements();
+
+      if (persistedAchievements === null) {
+        persistentStorage.saveAchievements(initialAchievements);
+        setAchievements(initialAchievements);
+      } else {
+        setAchievements(persistedAchievements);
+      }
+    })();
+  }, []);
 
   return (
     <AchievementsContext.Provider value={{ achievements, setAchievements }}>
