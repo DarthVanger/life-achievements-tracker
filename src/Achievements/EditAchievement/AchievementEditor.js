@@ -7,9 +7,6 @@ import StarsInput from './StarsInput';
 const AchievementEditor = ({ achievement, onChange }) => {
   const { achievements, setAchievements } = useAchievements();
 
-  console.log('achievement in editor: ', achievement);
-  console.log('achievements list  ', achievements);
-
   const updateAchievement = (updatedAchievement) => {
     setAchievements(achievements.map(achievement => {
       if (achievement.id === updatedAchievement.id) {
