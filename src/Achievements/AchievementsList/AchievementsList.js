@@ -6,7 +6,12 @@ import useAchievements from '../AchievementsStore/useAchievements';
 
 const AchievementList = () => {
   const navigation = useNavigation();
-  const { achievements, setAchievements } = useAchievements();
+  const {
+    achievements,
+    setAchievements,
+    isLoading,
+    errorLoading,
+  } = useAchievements();
 
   const renderItem = ({ item }) => (
     <Achievement achievement={item} />
@@ -15,6 +20,15 @@ const AchievementList = () => {
   const hanldeAddAchievementPress = () => {
     navigation.navigate('Add Achievement')
   };
+
+  if (errorLoading) {
+    return (
+      <View style={styles.errorContainer}>
+        <Text style={styles.errorText}>Error loading achievements 😔</Text>
+        <Text style={styles.errorText}>Please contact developer</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -33,6 +47,15 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
   },
+  errorContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  errorText: {
+    fontSize: 24,
+    margin: 12,
+  }
 });
 
 export default AchievementList;

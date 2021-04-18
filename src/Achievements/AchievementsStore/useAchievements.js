@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import AchievementsContext from './AchievementsContext';
 
 const useAchievements = () => {
-  const { achievements, setAchievements } = useContext(AchievementsContext); 
+  const contextValue = useContext(AchievementsContext); 
 
-  return { achievements, setAchievements };
+  return contextValue;
 };
 
 export default useAchievements;
