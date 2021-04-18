@@ -6,6 +6,8 @@ Mobile app for tracking life achievements.
 Simple & minimal.
 
 ## Motivation
+Taking time to appreciate your past achievements simply makes you feel just a bit better!
+
 In times of a depressed mood we tend to forget and disregard what we have accomplished in our lives.
 
 We see our lives as miserable ones.
@@ -15,7 +17,9 @@ Writing down our achievements, even the smallest ones, switches the mind focus t
 At any time you can open your life achievements tracker and see how much you've accomplished in your life!
 
 ## Technology
-React-Native.
+`React-Native`.
+
+Data is persisted in the phone memory with `AsyncStorage`.
 
 ## Launch locally
 ```
