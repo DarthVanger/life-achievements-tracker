@@ -7,16 +7,26 @@ import StarsInput from './StarsInput';
 const EditAchievement = ({ route, onChange }) => {
   const { achievements, setAchievements } = useAchievements();
 
-  const { achievement } = route.params;
+  const achievement = achievements.find(a => a.id === route.params.achievement.id);
+
+  const updateAchievement = (updatedAchievement) => {
+    setAchievements(achievements.map(achievement => {
+      if (achievement.id === updatedAchievement.id) {
+        return updatedAchievement;
+      }
+      return achievement;
+    }));
+  };
+
   const handleChangeText = (text) => {
-    onChange({
-      ...achivement,
+    updateAchievement({
+      ...achievement,
       name: text,
     });
   };
 
   const handleChangeStars = (stars) => {
-    onChange({
+    updateAchievement({
       ...achievement,
       stars,
     });

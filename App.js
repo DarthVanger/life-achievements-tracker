@@ -15,7 +15,7 @@ export default function App() {
   return (
     <AchievementsStoreProvider>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{ headerShown: true }}>
           <Stack.Screen
             name="Home"
             component={AchievementsList}
