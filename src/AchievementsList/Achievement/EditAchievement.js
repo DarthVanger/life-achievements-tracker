@@ -27,12 +27,6 @@ const EditAchievement = ({ achievement, onSave }) => {
         value={formData.name}
         onChangeText={handleChangeText}
       />
-    {/*
-      <Button
-        title="save"
-        onPress={() => onSave({ ...achievement, ...formData})}
-      />
-      */}
     </AchievementCard>
   );
 };
