@@ -42,7 +42,7 @@ const AchievementList = () => {
 
   return (
     <View style={styles.container}>
-      <Button title="New Achievement" onPress={navigation.navigate('Add Achievement')} />
+      <Button title="New Achievement" onPress={() => navigation.navigate('Add Achievement')} />
       <FlatList
         data={achievements}
         renderItem={renderItem}
