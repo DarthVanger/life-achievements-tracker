@@ -3,9 +3,10 @@ import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 import AchievementCard from '../AchievementCard';
 import useAchievements from '../AchievementsStore/useAchievements';
 import StarsInput from './StarsInput';
+import ErrorScreen from '../../ErrorScreen';
 
 const AchievementEditor = ({ achievement, onChange }) => {
-  const { achievements, setAchievements } = useAchievements();
+  const { achievements, setAchievements, errorSaving } = useAchievements();
 
   const updateAchievement = (updatedAchievement) => {
     setAchievements(achievements.map(achievement => {
@@ -29,6 +30,15 @@ const AchievementEditor = ({ achievement, onChange }) => {
       stars,
     });
   };
+
+  if (errorSaving) {
+    return (
+      <ErrorScreen>
+        <Text>Error saving achievement 😔</Text>
+        <Text>Please contact developer</Text>
+      </ErrorScreen>
+    );
+  }
 
   return (
     <AchievementCard>

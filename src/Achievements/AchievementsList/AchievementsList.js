@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
 import Achievement from './Achievement'
 import { useNavigation } from '@react-navigation/native';
 import useAchievements from '../AchievementsStore/useAchievements';
+import ErrorScreen from '../../ErrorScreen';
 
 const AchievementList = () => {
   const navigation = useNavigation();
@@ -23,10 +24,10 @@ const AchievementList = () => {
 
   if (errorLoading) {
     return (
-      <View style={styles.errorContainer}>
-        <Text style={styles.errorText}>Error loading achievements 😔</Text>
-        <Text style={styles.errorText}>Please contact developer</Text>
-      </View>
+      <ErrorScreen>
+        <Text>Error loading achievements 😔</Text>
+        <Text>Please contact developer</Text>
+      </ErrorScreen>
     );
   }
 
@@ -47,15 +48,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
   },
-  errorContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  errorText: {
-    fontSize: 24,
-    margin: 12,
-  }
 });
 
 export default AchievementList;
