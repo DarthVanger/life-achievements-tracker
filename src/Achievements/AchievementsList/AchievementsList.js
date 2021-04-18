@@ -8,34 +8,6 @@ const AchievementList = () => {
   const navigation = useNavigation();
   const { achievements, setAchievements } = useAchievements();
 
-  const [achievementInEditMode, setAchievementInEditMode] = useState(undefined);
-  const [addingNewAchievement, setAddingNewAchievement] = useState(false);
-
-  const handleSwitchToEditMode = (achievement) => {
-    setAchievementInEditMode(achievement);
-  };
-
-  const handleAddAchievementPress = () => {
-    setAddingNewAchievement(true);
-  };
-
-  const handleAddAchievementChange = (achievement) => {
-    if (achievement.name === '') return;
-    setAchievements([
-      ...achievements,
-      achievement
-    ]);
-  };
-
-  const handleAchievementEdit = (updatedAchievement) => {
-    setAchievements(achievements.map(achievement => {
-      if (achievement.id === updatedAchievement.id) {
-        return updatedAchievement;
-      }
-      return achievement;
-    }));
-  };
-
   const renderItem = ({ item }) => (
     <Achievement achievement={item} />
   );
