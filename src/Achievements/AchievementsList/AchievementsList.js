@@ -2,25 +2,12 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
 import Achievement from './Achievement'
 import { useNavigation } from '@react-navigation/native';
-import guid from './guid';
+import useAchievements from '../AchievementsStore/useAchievements';
 
 const AchievementList = () => {
   const navigation = useNavigation();
+  const { achievements, setAchievements } = useAchievements();
 
-  const initialAchievements = [
-    {
-      id: guid(),
-      name: 'born',
-      stars: 1,
-    },
-    {
-      id: guid(),
-      name: 'still alive',
-      stars: 2,
-    }
-  ];
-
-  const [achievements, setAchievements] = useState(initialAchievements);
   const [achievementInEditMode, setAchievementInEditMode] = useState(undefined);
   const [addingNewAchievement, setAddingNewAchievement] = useState(false);
 
