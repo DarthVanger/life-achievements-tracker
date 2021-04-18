@@ -5,18 +5,17 @@ import AchievementsList from './src/AchievementsList/AchievementsList';
 
 export default function App() {
   return (
+    <AchievementsList />
+  );
+  return (
     <View style={styles.container}>
-      <AchievementsList />
       <StatusBar style="auto" />
+      <AchievementsList />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });

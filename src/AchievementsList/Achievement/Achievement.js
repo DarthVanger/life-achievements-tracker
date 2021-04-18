@@ -9,16 +9,35 @@ const Achievement = ({ achievement, onEdit }) => {
   };
 
   return (
-    <AchievementCard onPress={handlePress}>
-      <Stars achievement={achievement} />
-      <Text style={styles.text}>{achievement.name}</Text>
-    </AchievementCard>
+    <TouchableHighlight style={styles.container}>
+      <View>
+        <Stars achievement={achievement} />
+        <Text style={styles.text}>{achievement.name}</Text>
+      </View>
+    </TouchableHighlight>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  //  flex: 1,
+  //  alignItems: 'center',
+  //  justifyContent: 'center',
+    backgroundColor: '#b5e8ff',
+ //   padding: 14,
+ //   margin: 10,
+    borderRadius: 5,
+//    height: 200,
+//    width: '100%',
+ //   alignSelf: 'stretch',
+//      width: '100%',
+  },
   text: {
-    alignSelf: 'center',
+    marginTop: 16,
+    fontSize: 24,
   },
 });
 

@@ -3,19 +3,17 @@ import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 import AchievementCard from './AchievementCard';
 import StarsInput from './StarsInput';
 
-const EditAchievement = ({ achievement, onSave }) => {
-  const [formData, setFormData] = useState(achievement);
-
+const EditAchievement = ({ achievement, onChange }) => {
   const handleChangeText = (text) => {
-    setFormData({
-      ...formData,
+    onChange({
+      ...achivement,
       name: text,
     });
   };
 
   const handleChangeStars = (stars) => {
-    setFormData({
-      ...formData,
+    onChange({
+      ...achievement,
       stars,
     });
   };

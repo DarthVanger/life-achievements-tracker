@@ -13,15 +13,19 @@ const AchievementCard = ({ children, ...props }) => {
 
 const styles = StyleSheet.create({
   container: {
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#b5e8ff',
-    padding: 14,
-    margin: 10,
+ //   padding: 14,
+ //   margin: 10,
     borderRadius: 5,
-    width: 160,
-    height: 100,
+//    height: 200,
+//    width: '100%',
+ //   alignSelf: 'stretch',
   },
 });
 

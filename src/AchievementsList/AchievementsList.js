@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import Achievement from './Achievement/Achievement'
 import EditAchievement from './Achievement/EditAchievement';
+import AddAchievement from './Achievement/AddAchievement';
 import guid from '../utils/guid';
 
 const AchievementList = () => {
@@ -19,13 +20,26 @@ const AchievementList = () => {
   ];
 
   const [achievements, setAchievements] = useState(initialAchievements);
-  const [editedAchievement, setEditedAchievement] = useState(undefined);
+  const [achievementInEditMode, setAchievementInEditMode] = useState(undefined);
+  const [addingNewAchievement, setAddingNewAchievement] = useState(false);
 
-  const handleAchievementEdit = (achievement) => {
-    setEditedAchievement(achievement);
+  const handleSwitchToEditMode = (achievement) => {
+    setAchievementInEditMode(achievement);
   };
 
-  const handleAchievementSave = (updatedAchievement) => {
+  const handleAddAchievementPress = () => {
+    setAddingNewAchievement(true);
+  };
+
+  const handleAddAchievementChange = (achievement) => {
+    if (achievement.name === '') return;
+    setAchievements([
+      ...achievements,
+      achievement
+    ]);
+  };
+
+  const handleAchievementEdit = (updatedAchievement) => {
     setAchievements(achievements.map(achievement => {
       if (achievement.id === updatedAchievement.id) {
         return updatedAchievement;
@@ -35,12 +49,12 @@ const AchievementList = () => {
   };
 
   const achievementElements = achievements.map(achievement => {
-    if (editedAchievement === achievement) {
+    if (achievementInEditMode === achievement) {
       return (
         <EditAchievement
           key={achievement.id}
           achievement={achievement}
-          onSave={handleAchievementSave}
+          onChange={handleAchievementEdit}
         />
       );
     }
@@ -49,14 +63,23 @@ const AchievementList = () => {
       <Achievement
         key={achievement.id}
         achievement={achievement}
-        onEdit={() => handleAchievementEdit(achievement)}
+        onEdit={() => handleSwitchToEditMode(achievement)}
       />
     );
   });
 
+  const renderItem = ({ item }) => (
+    <Achievement achievement={item} />
+  );
+
+
   return (
     <View style={styles.container}>
-      {achievementElements}
+      <FlatList
+        data={achievements}
+        renderItem={renderItem}
+        keyExtractor={achievement => achievement.id}
+      />
     </View>
   );
 };
@@ -64,11 +87,8 @@ const AchievementList = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    flexDirection: 'row',
-    paddingTop: 50,
+    marginTop: 50,
+    width: '100%',
   },
 });
 
