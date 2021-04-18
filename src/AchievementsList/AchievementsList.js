@@ -22,7 +22,6 @@ const AchievementList = () => {
   const [editedAchievement, setEditedAchievement] = useState(undefined);
 
   const handleAchievementEdit = (achievement) => {
-    console.log('edit achievement: ', achievement);
     setEditedAchievement(achievement);
   };
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
+import AchievementCard from './AchievementCard';
 import StarsInput from './StarsInput';
 
 const EditAchievement = ({ achievement, onSave }) => {
@@ -20,37 +21,26 @@ const EditAchievement = ({ achievement, onSave }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <AchievementCard>
       <StarsInput stars={formData.stars} onChange={handleChangeStars} />
       <TextInput style={styles.nameInput}
         value={formData.name}
         onChangeText={handleChangeText}
       />
+    {/*
       <Button
         title="save"
         onPress={() => onSave({ ...achievement, ...formData})}
       />
-    </View>
+      */}
+    </AchievementCard>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#b5e8ff',
-    padding: 16,
-    margin: 10,
-    borderRadius: 5,
-    width: 160,
-    height: 200,
-  },
   nameInput: {
-    marginTop: 16,
-    fontSize: 32,
+    marginTop: 14,
     textAlign: 'center',
-    width: '100%',
   },
 });
 
